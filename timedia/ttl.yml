@@ -1,0 +1,15 @@
+- name: "hogehoge-dev"
+  auth: "password"             # 認証方式 password or publickey
+  hostname: "192.168.xx.xx"    # ホスト名
+  username: "troter"
+  wait: "$"                    # ログイン時に表示される文字
+  command: "screen -rD -R"     # ログイン後実行するコマンド
+  options: ""                  # teratermに渡すコマンドラインオプション
+- name: "foobar-dev"
+  auth: "publickey"
+  keyfile: "path/to/keyfile"   # 秘密鍵の場所
+  hostname: "192.168.xx.yy"
+  username: "troter"
+  wait: "$"
+  command: "screen -rD -R"
+  options: ""
