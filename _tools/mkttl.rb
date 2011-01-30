@@ -8,7 +8,7 @@ $KCODE = "U"
 # ref: http://sourceforge.jp/magazine/10/01/18/105235
 module TTLMaker
 
-  class SSHConfig
+  class TTLConfig
     def initialize(config)
       @dirname = File.dirname(config)
       @config = YAML.load_file(config)
@@ -54,7 +54,7 @@ connect command
       EOS
       macro << "wait '#{data["wait"]}'\n" unless data['wait'].nil?
       macro << "sendln '#{data["command"]}'\n" unless data['command'].nil?
-      make_ttl_file(data["name"], macro) 
+      make_ttl_file(data["name"], macro)
     end
 
     def make_ttl_publickey(data)
@@ -105,7 +105,7 @@ connect command
 
   def self.run
     Dir["../**/ttl.yml"].each do |config|
-      TTLMaker::SSHConfig.new(config).run
+      TTLMaker::TTLConfig.new(config).run
     end
   end
 end
