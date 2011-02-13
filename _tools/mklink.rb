@@ -3,7 +3,7 @@
 require 'yaml'
 $KCODE = "U"
 
-module LinkMager
+module LinkMaker
 
   class RedirectMaker
     def initialize(config)
@@ -32,9 +32,9 @@ EOS
 
   def self.run
     Dir["../**/link.yml"].each do |config|
-      LinkMager::RedirectMaker.new(config).run
+      LinkMaker::RedirectMaker.new(config).run
     end
   end
 end
 
-LinkMager.run
+LinkMaker.run
